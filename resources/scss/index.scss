@@ -1,0 +1,83 @@
+@import url("./fontawesome/css/all.min.css");
+
+:root {
+	--max-width: 1024px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	font-family: 'Noto Sans TC', sans-serif;
+	letter-spacing: 0;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	color: #000;
+	word-wrap: break-word;
+	text-decoration: none;
+	touch-action: manipulation;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	-webkit-touch-callout: inherit;
+	-webkit-user-select: inherit;
+	-khtml-user-select: inherit;
+	-moz-user-select: inherit;
+	-ms-user-select: inherit;
+	user-select: inherit;
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+img {
+	object-fit: contain;
+
+	&[data-src] {
+		content: url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==");
+		background: linear-gradient(to right, #EEF0F3, #E0E2E8, #EEF0F3);
+	}
+}
+
+button,
+a[href]:not([href=""]) {
+	cursor: pointer;
+}
+
+html {
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+	>section {
+		position: relative;
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		max-width: var(--max-width);
+		text-align: center;
+	}
+}

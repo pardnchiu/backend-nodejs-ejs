@@ -1,0 +1,29 @@
+{
+	"apps": [
+		{
+			"name": "app",
+			"cwd": "./",
+			"script": "app.ts",
+			"instances": 1,
+			"exec_mode": "cluster",
+			"time": true,
+			"watch": true,
+			"ignore_watch": [
+				"./.git",
+				"./public",
+				"./resources/scss",
+				"./resources/views",
+				"./storage"
+			],
+			"out_file": "./storage/logs/out.log",
+			"error_file": "./storage/logs/err.log",
+			"combine_logs": true,
+			"merge_logs": true,
+			"env": {
+				"DOMAIN": "pardn.io",
+				"PORT": 80,
+				"ENV": "release"
+			}
+		}
+	]
+}
