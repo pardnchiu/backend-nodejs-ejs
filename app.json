@@ -1,6 +1,7 @@
 {
 	"apps": [
 		{
+			"interpreter": "./node_modules/.bin/ts-node",
 			"name": "app",
 			"cwd": "./",
 			"script": "app.ts",
