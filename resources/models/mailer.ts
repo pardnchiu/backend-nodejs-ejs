@@ -1,7 +1,7 @@
 (function () {
 	module.exports = {
-		cloud: createTransport(`${__dirname}/../config/mailer/cloud.js`),
-		host: createTransport(`${__dirname}/../config/mailer/host.js`)
+		cloud: createTransport(`${__dirname}/../config/mailer/cloud.json`),
+		host: createTransport(`${__dirname}/../config/mailer/host.json`)
 	};
 
 	function createTransport(path_config: string) {

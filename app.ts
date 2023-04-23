@@ -11,6 +11,7 @@ let minify        = require(`${__dirname}/resources/models/minify`);
 let strExtension  = require(`${__dirname}/resources/models/extension/string`);
 let numExtension  = require(`${__dirname}/resources/models/extension/number`);
 let app = express();
+let mysql  = require(`${__dirname}/resources/models/mysql`);
 
 app.set("views", path.join("/", `${__dirname}/resources/views`));
 app.set("view engine", "ejs");

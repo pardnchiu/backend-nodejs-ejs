@@ -1,5 +1,5 @@
 (function () {
-  var cname = require(`${__dirname}/../config/cname.js`);
+  var cname = require(`${__dirname}/../config/cname.json`);
   var domain = process.env.DOMAIN;
 
   module.exports = (req: any, res: any, next: () => void) => {

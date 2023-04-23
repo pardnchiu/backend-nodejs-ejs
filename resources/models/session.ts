@@ -1,11 +1,12 @@
 (function () {
+  var config = require(`${__dirname}/../config/session/redis.json`);
   var express_session = require("express-session");
   var redis = require("redis");
   var RedisStore = require("connect-redis")(express_session);
   var client = redis.createClient({
-    host: process.env.REDIS_HOST,
-    port: process.env.REDIS_PORT,
-    db: 0,
+    host: config.host,
+    port: config.port,
+    db: config.db,
   });
   module.exports = express_session({
     store: new RedisStore({ client: client }),

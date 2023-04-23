@@ -1,7 +1,7 @@
 (function () {
 	module.exports = {
-		read: createPool(`${__dirname}/../config/mysql/read.js`),
-		write: createPool(`${__dirname}/../config/mysql/write.js`)
+		read: createPool(`${__dirname}/../config/mysql/read.json`),
+		write: createPool(`${__dirname}/../config/mysql/write.json`)
 	};
 
 	function createPool(path_config: string) {
