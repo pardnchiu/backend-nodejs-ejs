@@ -8,7 +8,7 @@
 			"instances": 1,
 			"exec_mode": "cluster",
 			"time": true,
-			"watch": true,
+			"watch": false,
 			"ignore_watch": [
 				"./.git",
 				"./public",
@@ -16,8 +16,8 @@
 				"./resources/views",
 				"./storage"
 			],
-			"out_file": "./storage/logs/out.log",
-			"error_file": "./storage/logs/err.log",
+			"out_file": "./storage/log/out.log",
+			"error_file": "./storage/log/err.log",
 			"combine_logs": true,
 			"merge_logs": true,
 			"env": {

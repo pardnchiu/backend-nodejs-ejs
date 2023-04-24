@@ -1,10 +1,10 @@
 (function () {
-  let minifyHTML = require("express-minify-html");
+  let minify: any = require("express-minify-html");
   
-  module.exports = minifyHTML({
+  module.exports = minify({
     override      : true,
     exception_url : false,
-    htmlMinifier: {
+    htmlMinifier  : {
       removeComments            : true,
       collapseWhitespace        : true,
       collapseBooleanAttributes : true,
@@ -12,5 +12,5 @@
       removeEmptyAttributes     : true,
       minifyJS                  : true
     }
-  })
+  });
 }());

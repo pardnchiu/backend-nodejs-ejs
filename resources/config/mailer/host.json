@@ -1,7 +1,7 @@
 {
-  "host": "",
+  "host"  : "",
   "secure": false,
-  "port": 587,
-  "user": "",
-  "pass": ""
+  "port"  : 587,
+  "user"  : "",
+  "pass"  : ""
 }

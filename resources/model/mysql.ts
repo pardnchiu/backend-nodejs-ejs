@@ -1,25 +1,23 @@
 (function () {
-	function createPool(path_config: string) {
-		let mysql 	= require("mysql");
-		let config 	= require(path_config);
+	function pool(path_config: string) {
+		let config: any = require(path_config);
+		
+		if (!config.database) return;
 
-		let pool: any;
-
-		if (config.database) pool = mysql.createPool({
+		let mysql	: any = require("mysql");
+		let pool	: any = mysql.createPool({
 			port		: config.port || 3306,
 			host		: config.host || "127.0.0.1",
 			user		: config.user || "root",
 			password: config.password || "",
 			database: config.database,
 			charset	: config.charset || "utf8mb4",
-			connectionLimit			: config.connectionLimit || 8,
+			connectionLimit: config.connectionLimit || 8,
 			useConnectionPooling: true
 		});
-
+		
 		return (sql: string, options: any, callback: any) => {
-			if (!config.database) throw "提醒: 請設定 mysql config.";
 			if (typeof options === "function") (callback = options, options = undefined);
-
 			pool.getConnection((err: Error, connection: any) => {
 				if (err) return callback(err, null, null);
 				connection.query(sql, options, (err: Error, results: any, fields: any) => {
@@ -35,7 +33,7 @@
 	};
 
 	module.exports = {
-		read	: createPool(`${__dirname}/../config/mysql/read.json`),
-		write	: createPool(`${__dirname}/../config/mysql/write.json`)
+		read	: pool(`${__dirname}/../config/mysql/read.json`),
+		write	: pool(`${__dirname}/../config/mysql/write.json`)
 	};
 }());

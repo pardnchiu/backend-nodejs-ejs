@@ -1,6 +1,6 @@
 (function () {
-  let body    = require("body-parser");
-  let cookie  = require("cookie-parser");
+  let body  : any = require("body-parser");
+  let cookie: any = require("cookie-parser");
 
   module.exports = {
     json  : body.json(),
