@@ -13,14 +13,14 @@
   
   module.exports = session({
     store   : new connect({ client: client }),
-    secret  : "rzSAscktkQTV5SmCbt2bkP6Bxn9n2DyPSxsVVzWU4ER4XZRpM5cEBmxBQdT4hrZztWqAGxFGe2bfytvqGbVEqdRSbctquKrQ2QbutF2eY9azGScZpDzmfpNMXExK9XDK",
-    resave  : true,
+    secret  : "mOVocLFNX31kioLY6K4wZcRQD3E1KR",
     expires : new Date(Date.now() + expires),
-    saveUninitialized: true,
-    cookie: {
+    resave  : true,
+    cookie  : {
       domain  : `.${process.env.DOMAIN}`,
       httpOnly: true,
       maxAge  : expires,
-    }
+    },
+    saveUninitialized: true,
   });
 }());

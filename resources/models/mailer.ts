@@ -1,9 +1,7 @@
 (function () {
-	exports.cloud = createTransport(`${__dirname}/../config/mailer/cloud.json`);
-	exports.host 	= createTransport(`${__dirname}/../config/mailer/host.json`);
-
+	let mailer = require("nodemailer");
+	
 	function createTransport(path_config: string) {
-		let mailer = require("nodemailer");
 		let config = require(path_config);
 
 		let transport	: any;
@@ -34,6 +32,7 @@
 				},
 			}
 		);
+		
 		return (body: object) => {
 			if (!isConfig) throw "提醒: 請設定 mailer config.";
 			transport.sendMail(body, (err: Error, info: any) => {
@@ -42,5 +41,10 @@
 				transport.close();
 			});
 		};
+	};
+
+	module.exports = {
+		cloud	: createTransport(`${__dirname}/../config/mailer/cloud.json`),
+		host	: createTransport(`${__dirname}/../config/mailer/host.json`)
 	};
 }());

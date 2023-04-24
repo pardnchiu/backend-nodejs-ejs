@@ -1,7 +1,4 @@
 (function () {
-	exports.read 	= createPool(`${__dirname}/../config/mysql/read.json`);
-	exports.write = createPool(`${__dirname}/../config/mysql/write.json`);
-
 	function createPool(path_config: string) {
 		let mysql 	= require("mysql");
 		let config 	= require(path_config);
@@ -35,5 +32,10 @@
 				});
 			});
 		};
+	};
+
+	module.exports = {
+		read	: createPool(`${__dirname}/../config/mysql/read.json`),
+		write	: createPool(`${__dirname}/../config/mysql/write.json`)
 	};
 }());

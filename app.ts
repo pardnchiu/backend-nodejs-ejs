@@ -11,11 +11,9 @@ let minify        = require(`${__dirname}/resources/models/minify`);
 let strExtension  = require(`${__dirname}/resources/models/extension/string`);
 let numExtension  = require(`${__dirname}/resources/models/extension/number`);
 let app = express();
-let mysql  = require(`${__dirname}/resources/models/mysql`);
 
 app.set("views", path.join("/", `${__dirname}/resources/views`));
 app.set("view engine", "ejs");
-app.use("/", express.static(`${__dirname}/public`));
 app.use(partials());
 app.use(parser.json);
 app.use(parser.body);
@@ -24,7 +22,7 @@ app.use(parser.cookie);
 app.use(cors);
 app.use(morgan);
 app.use(minify);
-
+app.use("/", express.static(`${__dirname}/public`));
 app.use("/", require(`${__dirname}/routes/map.ts`));
 
 http.createServer(app).listen(process.env.PORT, (req: any, res: any) => {

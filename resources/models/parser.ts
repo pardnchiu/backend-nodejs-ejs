@@ -1,8 +1,10 @@
 (function () {
   let body    = require("body-parser");
   let cookie  = require("cookie-parser");
-  
-  exports.json    = body.json();
-  exports.body    = body.urlencoded({ extended: false });
-  exports.cookie  = cookie("24924502");
+
+  module.exports = {
+    json  : body.json(),
+    body  : body.urlencoded({ extended: false }),
+    cookie: cookie("1Qa0UPB4gleoIVGYCFi4AOKmHxnLGc")
+  };
 }());

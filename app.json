@@ -21,7 +21,7 @@
 			"combine_logs": true,
 			"merge_logs": true,
 			"env": {
-				"DOMAIN": "pardn.io",
+				"DOMAIN": "pardn.ltd",
 				"PORT": 80,
 				"ENV": "release"
 			}
