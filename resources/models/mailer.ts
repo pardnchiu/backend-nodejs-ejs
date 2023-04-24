@@ -1,30 +1,30 @@
 (function () {
-	module.exports = {
-		cloud: createTransport(`${__dirname}/../config/mailer/cloud.json`),
-		host: createTransport(`${__dirname}/../config/mailer/host.json`)
-	};
+	exports.cloud = createTransport(`${__dirname}/../config/mailer/cloud.json`);
+	exports.host 	= createTransport(`${__dirname}/../config/mailer/host.json`);
 
 	function createTransport(path_config: string) {
-		var nodemailer = require("nodemailer");
-		var config = require(path_config);
-		var isCloud = /cloud/.test(path_config);
-		var transport: any;
+		let mailer = require("nodemailer");
+		let config = require(path_config);
 
-		if (
+		let transport	: any;
+		let isCloud 	: boolean = /cloud/.test(path_config);
+		let isConfig	: boolean	= (
 			(isCloud && (config.service && config.user && config.pass)) ||
 			(!isCloud && (config.user && config.pass))
-		) transport = nodemailer.createTransport(
+		);
+
+		if (isConfig) transport = mailer.createTransport(
 			isCloud ? {
-				service: config.service,
-				secure: true,
+				service	: config.service,
+				secure	: true,
 				auth: {
 					user: config.user,
 					pass: config.pass
 				}
 			} : {
-				host: config.host || "127.0.0.1",
+				host	: config.host || "127.0.0.1",
 				secure: config.secure,
-				port: config.port || 25,
+				port	: config.port || 25,
 				auth: {
 					user: config.user,
 					pass: config.pass
@@ -35,10 +35,7 @@
 			}
 		);
 		return (body: object) => {
-			if (
-				(isCloud && (!config.service || !config.user || !config.pass)) ||
-				(!isCloud && (!config.user || !config.pass))
-			) return console.log("提醒: 請設定 mailer config.");
+			if (!isConfig) throw "提醒: 請設定 mailer config.";
 			transport.sendMail(body, (err: Error, info: any) => {
 				if (err) return console.error(err.message);
 				console.log(info.response);

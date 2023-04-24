@@ -5,7 +5,7 @@ let path          = require("path");
 let http          = require("http");
 let parser        = require(`${__dirname}/resources/models/parser`);
 // const session       = require(`${__dirname}/resources/models/session`);
-let cname         = require(`${__dirname}/resources/models/cname`);
+let cors          = require(`${__dirname}/resources/models/cors`);
 let morgan        = require(`${__dirname}/resources/models/morgan`);
 let minify        = require(`${__dirname}/resources/models/minify`);
 let strExtension  = require(`${__dirname}/resources/models/extension/string`);
@@ -21,7 +21,7 @@ app.use(parser.json);
 app.use(parser.body);
 app.use(parser.cookie);
 // app.use(session);
-app.use(cname);
+app.use(cors);
 app.use(morgan);
 app.use(minify);
 
