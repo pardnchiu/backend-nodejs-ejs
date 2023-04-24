@@ -1,8 +1,6 @@
 (function () {
-	module.exports = {
-		read: createPool(`${__dirname}/../config/mysql/read.json`),
-		write: createPool(`${__dirname}/../config/mysql/write.json`)
-	};
+	exports.read = createPool(`${__dirname}/../config/mysql/read.json`);
+	exports.write = createPool(`${__dirname}/../config/mysql/write.json`);
 
 	function createPool(path_config: string) {
 		var mysql = require("mysql");
